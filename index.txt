@@ -1,0 +1,90 @@
+1:"$Sreact.fragment"
+2:I[470,["470","static/chunks/470-ad955ea07778d30d.js","177","static/chunks/app/layout-aad35777045e2804.js"],"LanguageProvider"]
+3:I[7555,[],""]
+4:I[1295,[],""]
+6:I[7288,["874","static/chunks/874-e73895ef9deeb1fc.js","470","static/chunks/470-ad955ea07778d30d.js","974","static/chunks/app/page-2601a22afdf9d59d.js"],"default"]
+7:I[2880,["874","static/chunks/874-e73895ef9deeb1fc.js","470","static/chunks/470-ad955ea07778d30d.js","974","static/chunks/app/page-2601a22afdf9d59d.js"],"default"]
+8:I[8315,["874","static/chunks/874-e73895ef9deeb1fc.js","470","static/chunks/470-ad955ea07778d30d.js","974","static/chunks/app/page-2601a22afdf9d59d.js"],"default"]
+9:I[1830,["874","static/chunks/874-e73895ef9deeb1fc.js","470","static/chunks/470-ad955ea07778d30d.js","974","static/chunks/app/page-2601a22afdf9d59d.js"],"default"]
+a:I[8858,["874","static/chunks/874-e73895ef9deeb1fc.js","470","static/chunks/470-ad955ea07778d30d.js","974","static/chunks/app/page-2601a22afdf9d59d.js"],"default"]
+b:I[5308,["874","static/chunks/874-e73895ef9deeb1fc.js","470","static/chunks/470-ad955ea07778d30d.js","974","static/chunks/app/page-2601a22afdf9d59d.js"],"default"]
+c:I[2721,["874","static/chunks/874-e73895ef9deeb1fc.js","470","static/chunks/470-ad955ea07778d30d.js","974","static/chunks/app/page-2601a22afdf9d59d.js"],"default"]
+d:I[791,["874","static/chunks/874-e73895ef9deeb1fc.js","470","static/chunks/470-ad955ea07778d30d.js","974","static/chunks/app/page-2601a22afdf9d59d.js"],"default"]
+e:I[9010,["874","static/chunks/874-e73895ef9deeb1fc.js","470","static/chunks/470-ad955ea07778d30d.js","974","static/chunks/app/page-2601a22afdf9d59d.js"],"default"]
+f:I[9665,[],"OutletBoundary"]
+12:I[4911,[],"AsyncMetadataOutlet"]
+14:I[9665,[],"ViewportBoundary"]
+16:I[9665,[],"MetadataBoundary"]
+18:I[6614,[],""]
+:HL["/antbarbershop/_next/static/media/22a5144ee8d83bca-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/antbarbershop/_next/static/media/313510e2713fb214-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/antbarbershop/_next/static/media/427df92b731ee9ab-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/antbarbershop/_next/static/media/7d4881bb7e1bf84d-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/antbarbershop/_next/static/media/826b9b41ba68da52-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/antbarbershop/_next/static/media/be955174636e5369-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/antbarbershop/_next/static/media/f8db967ce76dbfa8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/antbarbershop/_next/static/css/428cfc9b0fa16b65.css","style"]
+5:Tc10,
+@keyframes atb-rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+@keyframes atb-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+@keyframes atb-float-soft { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@keyframes atb-spin { to { transform: rotate(360deg); } }
+@keyframes atb-spin-rev { to { transform: rotate(-360deg); } }
+@keyframes atb-pole { to { background-position: 0 44px; } }
+@keyframes atb-marquee { to { transform: translateX(-50%); } }
+@keyframes atb-ring { 0% { transform: scale(0.85); opacity: 0.65; } 70% { transform: scale(1.7); opacity: 0; } 100% { opacity: 0; } }
+@keyframes atb-shimmer { to { background-position: 200% center; } }
+@keyframes atb-blob { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(26px, -20px) scale(1.08); } 66% { transform: translate(-20px, 16px) scale(0.94); } }
+@keyframes atb-snip { 0%, 100% { transform: rotate(-12deg); } 50% { transform: rotate(12deg); } }
+
+.atb-rise { animation: atb-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.atb-float { animation: atb-float 6s ease-in-out infinite; }
+.atb-float-soft { animation: atb-float-soft 7.5s ease-in-out infinite; }
+.atb-spin-slow { animation: atb-spin 22s linear infinite; }
+.atb-spin-slow-rev { animation: atb-spin-rev 30s linear infinite; }
+.atb-snip { animation: atb-snip 3.4s ease-in-out infinite; transform-origin: 50% 50%; }
+.atb-blob { animation: atb-blob 18s ease-in-out infinite; }
+.atb-ring { animation: atb-ring 3s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
+
+.atb-pole-stripes {
+  background-image: repeating-linear-gradient(45deg, #C9A227 0 10px, #0B0B0C 10px 20px, #F5F2EC 20px 26px, #0B0B0C 26px 44px);
+  background-size: 44px 44px;
+  animation: atb-pole 2.4s linear infinite;
+}
+.atb-marquee-track { animation: atb-marquee 34s linear infinite; }
+.atb-marquee-wrap:hover .atb-marquee-track { animation-play-state: paused; }
+
+.atb-shimmer {
+  background: linear-gradient(90deg, #C9A227 0%, #F7E8AE 28%, #C9A227 56%, #C9A227 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: atb-shimmer 5s linear infinite;
+}
+
+[data-reveal] {
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+[data-reveal="out"] { opacity: 0; transform: translateY(34px); }
+[data-reveal="in"] { opacity: 1; transform: none; }
+
+.atb-lift { transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease, border-color 0.5s ease; }
+.atb-lift:hover { transform: translateY(-8px); box-shadow: 0 26px 60px rgba(0, 0, 0, 0.55); }
+
+@media (prefers-reduced-motion: reduce) {
+  .atb-rise, .atb-float, .atb-float-soft, .atb-spin-slow, .atb-spin-slow-rev, .atb-snip,
+  .atb-blob, .atb-ring, .atb-pole-stripes, .atb-marquee-track, .atb-shimmer { animation: none !important; }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+  .atb-lift:hover { transform: none; }
+}
+0:{"P":null,"b":"Ry7HBtdpMxbIPPu1yqmG8","p":"/antbarbershop","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/antbarbershop/_next/static/css/428cfc9b0fa16b65.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"scroll-smooth","suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_44ef74 __variable_61375c __variable_601f6b __variable_5dd9e6 __variable_09384a __variable_97fa22 font-[family-name:var(--font-body)] bg-[#0B0B0C] text-[#F5F2EC] antialiased","children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"html[dir=\"rtl\"] .rtl-font, html[dir=\"rtl\"] .rtl-font * { font-family: var(--font-arabic); }"}}],["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"flex flex-col items-center justify-center h-screen text-center px-4","children":[["$","h1",null,{"className":"text-5xl md:text-5xl font-semibold text-gray-100","children":"404"}],["$","h1",null,{"className":"text-2xl md:text-3xl font-semibold mt-6","children":"This page has not been generated"}],["$","p",null,{"className":"mt-4 text-xl md:text-2xl text-gray-500","children":"Tell me what you would like on this page"}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":"$5"}}]]}]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","div",null,{"className":"rtl-font min-h-screen bg-[#0B0B0C]","children":[["$","$L6",null,{}],["$","main",null,{"children":[["$","$L7",null,{}],["$","div",null,{"className":"atb-marquee-wrap relative w-full overflow-hidden border-y border-[#C9A227] bg-[#C9A227] py-4","children":["$","div",null,{"className":"atb-marquee-track flex w-max","children":[["$","div",null,{"className":"flex shrink-0 items-center","children":[["$","div","Precision Fades",{"className":"flex items-center","children":[["$","span",null,{"className":"px-8 font-[family-name:var(--font-display)] text-2xl uppercase tracking-[0.22em] text-[#0B0B0C] lg:text-3xl","children":"Precision Fades"}],["$","span",null,{"className":"flex h-6 w-6 items-center justify-center text-[#0B0B0C]","children":["$","i",null,{"className":"ri-scissors-2-line text-xl"}]}]]}],["$","div","Beard Sculpting",{"className":"flex items-center","children":[["$","span",null,{"className":"px-8 font-[family-name:var(--font-display)] text-2xl uppercase tracking-[0.22em] text-[#0B0B0C] lg:text-3xl","children":"Beard Sculpting"}],["$","span",null,{"className":"flex h-6 w-6 items-center justify-center text-[#0B0B0C]","children":["$","i",null,{"className":"ri-scissors-2-line text-xl"}]}]]}],["$","div","Hot Towel Shave",{"className":"flex items-center","children":[["$","span",null,{"className":"px-8 font-[family-name:var(--font-display)] text-2xl uppercase tracking-[0.22em] text-[#0B0B0C] lg:text-3xl","children":"Hot Towel Shave"}],["$","span",null,{"className":"flex h-6 w-6 items-center justify-center text-[#0B0B0C]","children":["$","i",null,{"className":"ri-scissors-2-line text-xl"}]}]]}],["$","div","Sharp Line Ups",{"className":"flex items-center","children":[["$","span",null,{"className":"px-8 font-[family-name:var(--font-display)] text-2xl uppercase tracking-[0.22em] text-[#0B0B0C] lg:text-3xl","children":"Sharp Line Ups"}],["$","span",null,{"className":"flex h-6 w-6 items-center justify-center text-[#0B0B0C]","children":["$","i",null,{"className":"ri-scissors-2-line text-xl"}]}]]}],["$","div","Scissor Work",{"className":"flex items-center","children":[["$","span",null,{"className":"px-8 font-[family-name:var(--font-display)] text-2xl uppercase tracking-[0.22em] text-[#0B0B0C] lg:text-3xl","children":"Scissor Work"}],["$","span",null,{"className":"flex h-6 w-6 items-center justify-center text-[#0B0B0C]","children":["$","i",null,{"className":"ri-scissors-2-line text-xl"}]}]]}],["$","div","Grey Blending",{"className":"flex items-center","children":[["$","span",null,{"className":"px-8 font-[family-name:var(--font-display)] text-2xl uppercase tracking-[0.22em] text-[#0B0B0C] lg:text-3xl","children":"Grey Blending"}],["$","span",null,{"className":"flex h-6 w-6 items-center justify-center text-[#0B0B0C]","children":["$","i",null,{"className":"ri-scissors-2-line text-xl"}]}]]}],["$","div","Kids Cuts",{"className":"flex items-center","children":[["$","span",null,{"className":"px-8 font-[family-name:var(--font-display)] text-2xl uppercase tracking-[0.22em] text-[#0B0B0C] lg:text-3xl","children":"Kids Cuts"}],["$","span",null,{"className":"flex h-6 w-6 items-center justify-center text-[#0B0B0C]","children":["$","i",null,{"className":"ri-scissors-2-line text-xl"}]}]]}],["$","div","Walk-Ins Welcome",{"className":"flex items-center","children":[["$","span",null,{"className":"px-8 font-[family-name:var(--font-display)] text-2xl uppercase tracking-[0.22em] text-[#0B0B0C] lg:text-3xl","children":"Walk-Ins Welcome"}],["$","span",null,{"className":"flex h-6 w-6 items-center justify-center text-[#0B0B0C]","children":["$","i",null,{"className":"ri-scissors-2-line text-xl"}]}]]}]]}],["$","div",null,{"className":"flex shrink-0 items-center","children":[["$","div","Precision Fades",{"className":"flex items-center","children":[["$","span",null,{"className":"px-8 font-[family-name:var(--font-display)] text-2xl uppercase tracking-[0.22em] text-[#0B0B0C] lg:text-3xl","children":"Precision Fades"}],["$","span",null,{"className":"flex h-6 w-6 items-center justify-center text-[#0B0B0C]","children":["$","i",null,{"className":"ri-scissors-2-line text-xl"}]}]]}],["$","div","Beard Sculpting",{"className":"flex items-center","children":[["$","span",null,{"className":"px-8 font-[family-name:var(--font-display)] text-2xl uppercase tracking-[0.22em] text-[#0B0B0C] lg:text-3xl","children":"Beard Sculpting"}],["$","span",null,{"className":"flex h-6 w-6 items-center justify-center text-[#0B0B0C]","children":["$","i",null,{"className":"ri-scissors-2-line text-xl"}]}]]}],["$","div","Hot Towel Shave",{"className":"flex items-center","children":[["$","span",null,{"className":"px-8 font-[family-name:var(--font-display)] text-2xl uppercase tracking-[0.22em] text-[#0B0B0C] lg:text-3xl","children":"Hot Towel Shave"}],["$","span",null,{"className":"flex h-6 w-6 items-center justify-center text-[#0B0B0C]","children":["$","i",null,{"className":"ri-scissors-2-line text-xl"}]}]]}],["$","div","Sharp Line Ups",{"className":"flex items-center","children":[["$","span",null,{"className":"px-8 font-[family-name:var(--font-display)] text-2xl uppercase tracking-[0.22em] text-[#0B0B0C] lg:text-3xl","children":"Sharp Line Ups"}],["$","span",null,{"className":"flex h-6 w-6 items-center justify-center text-[#0B0B0C]","children":["$","i",null,{"className":"ri-scissors-2-line text-xl"}]}]]}],["$","div","Scissor Work",{"className":"flex items-center","children":[["$","span",null,{"className":"px-8 font-[family-name:var(--font-display)] text-2xl uppercase tracking-[0.22em] text-[#0B0B0C] lg:text-3xl","children":"Scissor Work"}],["$","span",null,{"className":"flex h-6 w-6 items-center justify-center text-[#0B0B0C]","children":["$","i",null,{"className":"ri-scissors-2-line text-xl"}]}]]}],["$","div","Grey Blending",{"className":"flex items-center","children":[["$","span",null,{"className":"px-8 font-[family-name:var(--font-display)] text-2xl uppercase tracking-[0.22em] text-[#0B0B0C] lg:text-3xl","children":"Grey Blending"}],["$","span",null,{"className":"flex h-6 w-6 items-center justify-center text-[#0B0B0C]","children":["$","i",null,{"className":"ri-scissors-2-line text-xl"}]}]]}],["$","div","Kids Cuts",{"className":"flex items-center","children":[["$","span",null,{"className":"px-8 font-[family-name:var(--font-display)] text-2xl uppercase tracking-[0.22em] text-[#0B0B0C] lg:text-3xl","children":"Kids Cuts"}],["$","span",null,{"className":"flex h-6 w-6 items-center justify-center text-[#0B0B0C]","children":["$","i",null,{"className":"ri-scissors-2-line text-xl"}]}]]}],["$","div","Walk-Ins Welcome",{"className":"flex items-center","children":[["$","span",null,{"className":"px-8 font-[family-name:var(--font-display)] text-2xl uppercase tracking-[0.22em] text-[#0B0B0C] lg:text-3xl","children":"Walk-Ins Welcome"}],["$","span",null,{"className":"flex h-6 w-6 items-center justify-center text-[#0B0B0C]","children":["$","i",null,{"className":"ri-scissors-2-line text-xl"}]}]]}]]}]]}]}],["$","$L8",null,{}],["$","$L9",null,{}],["$","$La",null,{}],["$","$Lb",null,{}],["$","$Lc",null,{}],["$","$Ld",null,{}]]}],["$","$Le",null,{}]]}],null,["$","$Lf",null,{"children":["$L10","$L11",["$","$L12",null,{"promise":"$@13"}]]}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","LZeWgbYN2J_nGinKxEXKyv",{"children":[["$","$L14",null,{"children":"$L15"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$L16",null,{"children":"$L17"}]]}],false]],"m":"$undefined","G":["$18","$undefined"],"s":false,"S":true}
+19:"$Sreact.suspense"
+1a:I[4911,[],"AsyncMetadata"]
+17:["$","div",null,{"hidden":true,"children":["$","$19",null,{"fallback":null,"children":["$","$L1a",null,{"promise":"$@1b"}]}]}]
+11:null
+15:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+10:null
+13:{"metadata":[["$","title","0",{"children":"A&T Barbershop | Classic Cuts & Fades in The Colony, TX"}],["$","meta","1",{"name":"description","content":"Precision fades, classic scissor cuts and beard grooming in The Colony, Texas. Open seven days a week. English, Arabic and Spanish spoken."}]],"error":null,"digest":"$undefined"}
+1b:{"metadata":"$13:metadata","error":null,"digest":"$undefined"}

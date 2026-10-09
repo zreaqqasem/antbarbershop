@@ -16,43 +16,61 @@ export function prefersReducedMotion() {
 }
 
 /**
- * Calls `onProgress` once per frame while scrolling.
+ * Calls `onProgress` every frame while the value is moving.
  *
  * "pinned": 0 when the element's top reaches the viewport top, 1 when its bottom
  * reaches the viewport bottom — for tall sections with a sticky child.
  * "pass": 0 when the element enters at the bottom, 1 when it leaves at the top.
  *
- * Updates are written straight to the DOM by the callback rather than through
- * React state, so scrolling never re-renders.
+ * The reported value eases toward the scroll position rather than tracking it
+ * exactly, which hides wheel steps and makes the motion glide. Updates are
+ * written straight to the DOM by the callback, so scrolling never re-renders.
  */
 export function useScrollProgress(
   ref: RefObject<HTMLElement | null>,
   onProgress: (p: number) => void,
   mode: "pinned" | "pass" = "pinned",
+  stiffness = 9,
 ) {
   const cb = useRef(onProgress);
   cb.current = onProgress;
 
   useEffect(() => {
     let raf = 0;
-    const update = () => {
-      raf = 0;
+    let target = 0;
+    let current = 0;
+    let last = 0;
+
+    const measure = () => {
       const el = ref.current;
       if (!el) return;
       const r = el.getBoundingClientRect();
       const vh = window.innerHeight;
-      const p =
+      target =
         mode === "pinned"
           ? r.height > vh
             ? clamp(-r.top / (r.height - vh))
             : 0
           : clamp((vh - r.top) / (vh + r.height));
-      cb.current(p);
+    };
+    const tick = (now: number) => {
+      raf = 0;
+      const dt = last ? Math.min((now - last) / 1000, 0.05) : 0.016;
+      last = now;
+      current += (target - current) * (1 - Math.exp(-dt * stiffness));
+      if (Math.abs(target - current) < 0.0002) current = target;
+      cb.current(current);
+      if (current !== target) raf = requestAnimationFrame(tick);
+      else last = 0;
     };
     const schedule = () => {
-      if (!raf) raf = requestAnimationFrame(update);
+      measure();
+      if (!raf) raf = requestAnimationFrame(tick);
     };
-    update();
+
+    measure();
+    current = target;
+    cb.current(current);
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", schedule);
     return () => {
@@ -60,5 +78,5 @@ export function useScrollProgress(
       window.removeEventListener("resize", schedule);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, [ref, mode]);
+  }, [ref, mode, stiffness]);
 }

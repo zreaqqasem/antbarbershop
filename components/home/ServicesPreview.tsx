@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import SectionHeading from "../SectionHeading";
 import Reveal from "../Reveal";
 import { useLanguage } from "../LanguageProvider";
@@ -24,15 +23,17 @@ export default function ServicesPreview() {
             />
           </Reveal>
           <Reveal delay={120}>
-            <Link
-              href="/#visit"
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap text-sm uppercase tracking-[0.18em] text-[#C9A227] transition-colors hover:text-[#E0B93A]"
             >
               {t.services.cta}
               <span className="flex h-4 w-4 items-center justify-center">
                 <i className="ri-arrow-right-line" />
               </span>
-            </Link>
+            </a>
           </Reveal>
         </div>
 
@@ -46,7 +47,7 @@ export default function ServicesPreview() {
                   <img
                     src={SERVICE_IMAGES[i]}
                     alt={s.name}
-                    className="h-full w-full object-top transition-transform duration-700 group-hover:scale-105"
+                    className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
                   <span className="absolute right-4 top-4 rounded-full bg-[#0B0B0C]/80 px-3 py-1 font-[family-name:var(--font-display)] text-base text-[#C9A227] backdrop-blur">
                     {s.price}
@@ -78,6 +79,24 @@ export default function ServicesPreview() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal className="mt-10 rounded-2xl border border-[#232326] bg-[#111113] p-6 lg:p-8">
+          <p className="font-[family-name:var(--font-display)] text-2xl tracking-wide text-[#F5F2EC]">
+            {t.services.moreTitle}
+          </p>
+          <ul className="mt-5 grid gap-x-10 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+            {t.services.more.map((m) => (
+              <li key={m.name} className="flex items-baseline gap-3 text-sm">
+                <span className="text-[#E4E0D8]">{m.name}</span>
+                <span className="flex-1 border-b border-dotted border-[#3A3A3F]" />
+                <span className="whitespace-nowrap text-xs text-[#8E897F]">{m.duration}</span>
+                <span className="font-[family-name:var(--font-display)] text-base text-[#C9A227]">
+                  {m.price}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
     </section>
   );

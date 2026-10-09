@@ -1,10 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import SectionHeading from "../SectionHeading";
 import Reveal from "../Reveal";
 import { useLanguage } from "../LanguageProvider";
-import { MAP_EMBED } from "../../lib/data";
+import { MAP_EMBED, MAPS_URL, PHONE_TEL } from "../../lib/data";
 
 export default function VisitSection() {
   const { t } = useLanguage();
@@ -28,15 +27,15 @@ export default function VisitSection() {
             <SectionHeading overline={v.overline} title={v.title} subtitle={v.subtitle} />
           </Reveal>
           <Reveal delay={120}>
-            <Link
-              href="/#top"
+            <a
+              href={PHONE_TEL}
               className="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap rounded-full bg-[#C9A227] px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.18em] text-[#0B0B0C] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#E0B93A]"
             >
               <span className="flex h-4 w-4 items-center justify-center">
                 <i className="ri-phone-line" />
               </span>
               {v.phoneValue}
-            </Link>
+            </a>
           </Reveal>
         </div>
 
@@ -82,6 +81,20 @@ export default function VisitSection() {
                   </li>
                 ))}
               </ul>
+            </Reveal>
+
+            <Reveal delay={260}>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-[#3A3A3F] py-3 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#F5F2EC] transition-colors hover:border-[#C9A227] hover:text-[#C9A227]"
+              >
+                <span className="flex h-4 w-4 items-center justify-center">
+                  <i className="ri-map-2-line" />
+                </span>
+                {v.directions}
+              </a>
             </Reveal>
           </div>
         </div>

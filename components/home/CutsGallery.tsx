@@ -3,7 +3,7 @@
 import SectionHeading from "../SectionHeading";
 import Reveal from "../Reveal";
 import { useLanguage } from "../LanguageProvider";
-import { SERVICE_IMAGES } from "../../lib/data";
+import { GALLERY_IMAGES } from "../../lib/data";
 
 export default function CutsGallery() {
   const { t } = useLanguage();
@@ -30,9 +30,10 @@ export default function CutsGallery() {
               className="group atb-lift relative aspect-square overflow-hidden rounded-2xl border border-[#232326]"
             >
               <img
-                src={SERVICE_IMAGES[i]}
+                src={GALLERY_IMAGES[i]}
+                loading="lazy"
                 alt={title}
-                className="h-full w-full object-top transition-transform duration-700 group-hover:scale-110"
+                className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
               />
               <span className="pointer-events-none absolute inset-0 bg-[#C9A227]/0 transition-colors duration-500 group-hover:bg-[#C9A227]/10" />
               <figcaption className="absolute inset-x-0 bottom-0 flex translate-y-2 items-center justify-between bg-gradient-to-t from-[#0B0B0C] to-transparent p-5 text-sm tracking-wide text-[#F5F2EC] opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">

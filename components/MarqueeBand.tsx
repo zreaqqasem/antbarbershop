@@ -1,11 +1,11 @@
 const ITEMS = [
   "Precision Fades",
-  "Beard Sculpting",
-  "Hot Towel Shave",
-  "Sharp Line Ups",
-  "Scissor Work",
-  "Grey Blending",
+  "Beard Trims",
   "Kids Cuts",
+  "Hair Designs",
+  "Master Scissor Cuts",
+  "Hair Color",
+  "Facials",
   "Walk-Ins Welcome",
 ];
 

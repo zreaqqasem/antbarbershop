@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLanguage } from "./LanguageProvider";
+import { INSTAGRAM_URL, MAPS_URL, PHONE_TEL } from "../lib/data";
 
 const HREFS = ["/#services", "/#barbers", "/#gallery", "/#visit"];
 
@@ -64,19 +65,28 @@ export default function Footer() {
               <span className="mt-0.5 flex h-4 w-4 items-center justify-center text-[#C9A227]">
                 <i className="ri-phone-line" />
               </span>
-              {t.visit.phoneValue}
+              <a href={PHONE_TEL} className="transition-colors hover:text-[#F5F2EC]">
+                {t.visit.phoneValue}
+              </a>
             </li>
           </ul>
           <div className="mt-5 flex items-center gap-3">
-            <span className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-[#2A2A2E] text-[#A9A49A] transition-colors hover:border-[#C9A227] hover:text-[#C9A227]">
-              <i className="ri-instagram-line" />
-            </span>
-            <span className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-[#2A2A2E] text-[#A9A49A] transition-colors hover:border-[#C9A227] hover:text-[#C9A227]">
-              <i className="ri-facebook-circle-line" />
-            </span>
-            <span className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-[#2A2A2E] text-[#A9A49A] transition-colors hover:border-[#C9A227] hover:text-[#C9A227]">
-              <i className="ri-whatsapp-line" />
-            </span>
+            {[
+              { href: INSTAGRAM_URL, icon: "ri-instagram-line", label: "Instagram" },
+              { href: PHONE_TEL, icon: "ri-phone-line", label: "Call" },
+              { href: MAPS_URL, icon: "ri-map-pin-line", label: "Google Maps" },
+            ].map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                aria-label={s.label}
+                target={s.href.startsWith("http") ? "_blank" : undefined}
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-[#2A2A2E] text-[#A9A49A] transition-colors hover:border-[#C9A227] hover:text-[#C9A227]"
+              >
+                <i className={s.icon} />
+              </a>
+            ))}
           </div>
         </div>
       </div>

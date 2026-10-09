@@ -49,7 +49,7 @@ const arabic = Noto_Kufi_Arabic({
 export const metadata: Metadata = {
   title: "A&T Barbershop | Classic Cuts & Fades in The Colony, TX",
   description:
-    "Precision fades, classic scissor cuts and beard grooming in The Colony, Texas. Open seven days a week. English, Arabic and Spanish spoken.",
+    "Fades, beard trims, kids' haircuts and modern styles at 3805 Main St, The Colony, TX. Open daily 10am–9pm. Rated 5.0 from 171 Booksy reviews.",
 };
 
 export const viewport: Viewport = {

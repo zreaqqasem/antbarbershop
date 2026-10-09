@@ -42,14 +42,7 @@ export default function Footer() {
           <p className="text-[11px] uppercase tracking-[0.28em] text-[#C9A227]">
             {t.footer.hoursTitle}
           </p>
-          <ul className="mt-5 space-y-2">
-            {t.visit.hours.map((h) => (
-              <li key={h.day} className="flex justify-between gap-4 text-sm text-[#8E897F]">
-                <span>{h.day}</span>
-                <span className="text-[#C4BFB5]">{h.time}</span>
-              </li>
-            ))}
-          </ul>
+          <p className="mt-5 text-sm text-[#C4BFB5]">{t.visit.todayValue}</p>
         </div>
 
         <div>

@@ -12,7 +12,7 @@ export default function VisitSection() {
   const cards = [
     { icon: "ri-map-pin-line", label: v.address, value: v.addressValue },
     { icon: "ri-phone-line", label: v.phone, value: v.phoneValue },
-    { icon: "ri-time-line", label: v.today, value: v.todayValue },
+    { icon: "ri-time-line", label: v.hoursTitle, value: v.todayValue },
     { icon: "ri-translate-2", label: v.languages, value: v.languagesValue },
   ];
 
@@ -67,20 +67,6 @@ export default function VisitSection() {
                   </div>
                 ))}
               </div>
-            </Reveal>
-
-            <Reveal delay={200} className="rounded-2xl border border-[#232326] bg-[#111113] p-6 atb-lift">
-              <p className="font-[family-name:var(--font-display)] text-xl tracking-wide text-[#F5F2EC]">
-                {v.hoursTitle}
-              </p>
-              <ul className="mt-4 space-y-2">
-                {v.hours.map((h) => (
-                  <li key={h.day} className="flex justify-between gap-4 text-sm">
-                    <span className="text-[#8E897F]">{h.day}</span>
-                    <span className="text-[#C4BFB5]">{h.time}</span>
-                  </li>
-                ))}
-              </ul>
             </Reveal>
 
             <Reveal delay={260}>

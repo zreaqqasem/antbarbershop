@@ -1,6 +1,7 @@
 "use client";
 
 import SectionHeading from "../SectionHeading";
+import { useEffect, useState } from "react";
 import Reveal from "../Reveal";
 import { useLanguage } from "../LanguageProvider";
 import { MAP_EMBED, MAPS_URL, PHONE_TEL } from "../../lib/data";
@@ -9,10 +10,31 @@ export default function VisitSection() {
   const { t } = useLanguage();
   const v = t.visit;
 
+  // Shop time, not the visitor's: weekday 0 = Monday, and whether it's 10am–9pm there.
+  // Computed after mount so the static HTML never disagrees with the client.
+  const [now, setNow] = useState<{ day: number; open: boolean } | null>(null);
+  useEffect(() => {
+    const tick = () => {
+      const parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Chicago",
+        weekday: "short",
+        hour: "numeric",
+        hourCycle: "h23",
+      }).formatToParts(new Date());
+      const wd = parts.find((p) => p.type === "weekday")?.value ?? "Mon";
+      const hour = Number(parts.find((p) => p.type === "hour")?.value ?? 0);
+      const day = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].indexOf(wd);
+      setNow({ day, open: hour >= 10 && hour < 21 });
+    };
+    tick();
+    const id = setInterval(tick, 60_000);
+    return () => clearInterval(id);
+  }, []);
+
   const cards = [
     { icon: "ri-map-pin-line", label: v.address, value: v.addressValue },
     { icon: "ri-phone-line", label: v.phone, value: v.phoneValue },
-    { icon: "ri-time-line", label: v.hoursTitle, value: v.todayValue },
+    { icon: "ri-walk-line", label: v.walkIns, value: v.walkInsValue },
     { icon: "ri-translate-2", label: v.languages, value: v.languagesValue },
   ];
 
@@ -44,7 +66,7 @@ export default function VisitSection() {
             <iframe
               title="A&T Barbershop location"
               src={MAP_EMBED}
-              className="h-[440px] w-full"
+              className="h-full min-h-[440px] w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
@@ -67,6 +89,43 @@ export default function VisitSection() {
                   </div>
                 ))}
               </div>
+            </Reveal>
+
+            <Reveal delay={200} className="rounded-2xl border border-[#232326] bg-[#111113] p-6 atb-lift">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <p className="font-[family-name:var(--font-display)] text-xl tracking-wide text-[#F5F2EC]">
+                  {v.hoursTitle}
+                </p>
+                {now && (
+                  <span
+                    className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs ${
+                      now.open ? "bg-[#1F3B2A] text-[#7EE2A0]" : "bg-[#3B1F1F] text-[#F0A0A0]"
+                    }`}
+                  >
+                    <span className={`h-2 w-2 rounded-full ${now.open ? "animate-pulse bg-[#7EE2A0]" : "bg-[#F0A0A0]"}`} />
+                    {now.open ? v.openNow : v.closedNow}
+                  </span>
+                )}
+              </div>
+              <ul className="mt-4 space-y-1">
+                {v.days.map((day, i) => {
+                  const today = now?.day === i;
+                  return (
+                    <li
+                      key={day}
+                      className={`flex justify-between gap-4 rounded-lg px-3 py-1.5 text-sm ${
+                        today ? "bg-[#C9A227]/10 text-[#F5F2EC]" : ""
+                      }`}
+                    >
+                      <span className={today ? "font-semibold text-[#C9A227]" : "text-[#8E897F]"}>
+                        {day}
+                        {today && <span className="ms-2 text-[10px] uppercase tracking-[0.18em]">· {v.todayTag}</span>}
+                      </span>
+                      <span className={today ? "text-[#F5F2EC]" : "text-[#C4BFB5]"}>{v.dayHours}</span>
+                    </li>
+                  );
+                })}
+              </ul>
             </Reveal>
 
             <Reveal delay={260}>

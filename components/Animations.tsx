@@ -10,6 +10,7 @@ export default function Animations() {
 @keyframes atb-ring { 0% { transform: scale(0.85); opacity: 0.65; } 70% { transform: scale(1.7); opacity: 0; } 100% { opacity: 0; } }
 @keyframes atb-shimmer { to { background-position: 200% center; } }
 @keyframes atb-blob { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(26px, -20px) scale(1.08); } 66% { transform: translate(-20px, 16px) scale(0.94); } }
+@keyframes atb-buzz { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(0.7px, -0.6px); } 50% { transform: translate(-0.6px, 0.5px); } 75% { transform: translate(0.5px, 0.7px); } }
 @keyframes atb-snip { 0%, 100% { transform: rotate(-12deg); } 50% { transform: rotate(12deg); } }
 
 .atb-rise { animation: atb-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
@@ -18,6 +19,7 @@ export default function Animations() {
 .atb-spin-slow { animation: atb-spin 22s linear infinite; }
 .atb-spin-slow-rev { animation: atb-spin-rev 30s linear infinite; }
 .atb-snip { animation: atb-snip 3.4s ease-in-out infinite; transform-origin: 50% 50%; }
+.atb-buzz { animation: atb-buzz 0.09s linear infinite; }
 .atb-blob { animation: atb-blob 18s ease-in-out infinite; }
 .atb-ring { animation: atb-ring 3s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
 
@@ -50,7 +52,7 @@ export default function Animations() {
 
 @media (prefers-reduced-motion: reduce) {
   .atb-rise, .atb-float, .atb-float-soft, .atb-spin-slow, .atb-spin-slow-rev, .atb-snip,
-  .atb-blob, .atb-ring, .atb-pole-stripes, .atb-marquee-track, .atb-shimmer { animation: none !important; }
+  .atb-blob, .atb-ring, .atb-buzz, .atb-pole-stripes, .atb-marquee-track, .atb-shimmer { animation: none !important; }
   [data-reveal] { opacity: 1 !important; transform: none !important; }
   .atb-lift:hover { transform: none; }
 }

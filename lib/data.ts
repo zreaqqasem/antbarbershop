@@ -4,6 +4,8 @@ const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const img = (name: string) => `${BASE}/images/${name}.jpg`;
 
 export const HERO_IMAGE = img("hero-taher");
+export const TEAM_IMAGE = img("team");
+export const FADE_IMAGE = img("work-01");
 
 export const BOOKING_URL = "http://atbarbershopsalonhlqrby.booksy.com/k/";
 export const BOOKSY_PROFILE_URL =
@@ -25,7 +27,8 @@ export const SERVICE_IMAGES = [
   img("work-08"),
 ];
 
-// Paired by index with t.gallery.items.
+// The first nine pair by index with t.gallery.items; the rest come from the
+// shop's Booksy portfolio and have no caption.
 export const GALLERY_IMAGES = [
   img("work-01"),
   img("work-02"),
@@ -36,6 +39,7 @@ export const GALLERY_IMAGES = [
   img("work-07"),
   img("work-08"),
   img("work-09"),
+  ...Array.from({ length: 22 }, (_, i) => img(`booksy-${String(i + 1).padStart(2, "0")}`)),
 ];
 
 export type Barber = { name: string; image: string; owner?: boolean; quote?: string };

@@ -1,19 +1,40 @@
 "use client";
 
 import Link from "next/link";
+import { useRef } from "react";
 import PriceBoard from "../PriceBoard";
 import BarberPole from "../BarberPole";
 import { useLanguage } from "../LanguageProvider";
 import { HERO_IMAGE, BOOKING_URL } from "../../lib/data";
+import { prefersReducedMotion, useScrollProgress } from "../scroll";
 
 export default function HeroSection() {
   const { t } = useLanguage();
+  const section = useRef<HTMLElement | null>(null);
+  const bg = useRef<HTMLDivElement | null>(null);
+  const content = useRef<HTMLDivElement | null>(null);
+
+  // Background drifts slower than the page; the content lifts and fades as it leaves.
+  useScrollProgress(
+    section,
+    (p) => {
+      if (prefersReducedMotion()) return;
+      const q = Math.max(0, (p - 0.5) * 2);
+      if (bg.current) bg.current.style.transform = `translate3d(0, ${q * 30}%, 0) scale(${1.08 + q * 0.12})`;
+      if (content.current) {
+        content.current.style.transform = `translate3d(0, ${q * -80}px, 0)`;
+        content.current.style.opacity = String(1 - q * 1.1);
+      }
+    },
+    "pass",
+  );
 
   return (
-    <section id="top" className="relative min-h-[100svh] w-full overflow-hidden pt-[72px]">
+    <section ref={section} id="top" className="relative min-h-[100svh] w-full overflow-hidden pt-[72px]">
       <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('${HERO_IMAGE}')` }}
+        ref={bg}
+        className="absolute inset-0 bg-cover bg-center will-change-transform"
+        style={{ backgroundImage: `url('${HERO_IMAGE}')`, transform: "scale(1.08)" }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0C] via-[#0B0B0C]/90 to-[#0B0B0C]/40" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0C] via-[#0B0B0C]/10 to-[#0B0B0C]/70" />
@@ -21,7 +42,9 @@ export default function HeroSection() {
       <div className="pointer-events-none absolute -left-24 top-1/4 h-80 w-80 rounded-full bg-[#C9A227]/10 blur-3xl atb-blob" />
       <div className="pointer-events-none absolute bottom-10 right-1/4 h-72 w-72 rounded-full bg-[#C9A227]/[0.08] blur-3xl atb-blob" />
 
-      <div className="relative mx-auto flex w-full max-w-[1280px] flex-col gap-12 px-6 py-16 lg:flex-row lg:items-center lg:gap-16 lg:px-10 lg:py-24">
+      <div
+        ref={content}
+        className="relative mx-auto flex w-full max-w-[1280px] flex-col gap-12 px-6 py-16 lg:flex-row lg:items-center lg:gap-16 lg:px-10 lg:py-24">
         <div className="flex-1">
           <span className="atb-rise inline-flex items-center gap-2 rounded-full border border-[#2A2A2E] px-4 py-1.5 text-[11px] uppercase tracking-[0.28em] text-[#C9A227]">
             <span className="flex h-4 w-4 items-center justify-center">

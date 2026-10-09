@@ -1,0 +1,64 @@
+"use client";
+
+import { useEffect, useRef, type RefObject } from "react";
+
+export const clamp = (v: number, a = 0, b = 1) => Math.min(Math.max(v, a), b);
+
+// Maps p from [a, b] onto [0, 1].
+export const seg = (p: number, a: number, b: number) => clamp((p - a) / (b - a));
+
+export const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+export const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+
+export function prefersReducedMotion() {
+  return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+/**
+ * Calls `onProgress` once per frame while scrolling.
+ *
+ * "pinned": 0 when the element's top reaches the viewport top, 1 when its bottom
+ * reaches the viewport bottom — for tall sections with a sticky child.
+ * "pass": 0 when the element enters at the bottom, 1 when it leaves at the top.
+ *
+ * Updates are written straight to the DOM by the callback rather than through
+ * React state, so scrolling never re-renders.
+ */
+export function useScrollProgress(
+  ref: RefObject<HTMLElement | null>,
+  onProgress: (p: number) => void,
+  mode: "pinned" | "pass" = "pinned",
+) {
+  const cb = useRef(onProgress);
+  cb.current = onProgress;
+
+  useEffect(() => {
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const el = ref.current;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const p =
+        mode === "pinned"
+          ? r.height > vh
+            ? clamp(-r.top / (r.height - vh))
+            : 0
+          : clamp((vh - r.top) / (vh + r.height));
+      cb.current(p);
+    };
+    const schedule = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    return () => {
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [ref, mode]);
+}

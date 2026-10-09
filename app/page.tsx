@@ -6,6 +6,8 @@ import ServicesPreview from "../components/home/ServicesPreview";
 import StatsStrip from "../components/home/StatsStrip";
 import BarbersPreview from "../components/home/BarbersPreview";
 import CutsGallery from "../components/home/CutsGallery";
+import ClipperStory from "../components/home/ClipperStory";
+import TeamReveal from "../components/home/TeamReveal";
 import ReviewsSection from "../components/home/ReviewsSection";
 import VisitSection from "../components/home/VisitSection";
 
@@ -16,8 +18,10 @@ export default function Home() {
       <main>
         <HeroSection />
         <MarqueeBand />
+        <ClipperStory />
         <ServicesPreview />
         <StatsStrip />
+        <TeamReveal />
         <BarbersPreview />
         <CutsGallery />
         <ReviewsSection />

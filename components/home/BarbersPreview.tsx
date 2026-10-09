@@ -3,7 +3,7 @@
 import SectionHeading from "../SectionHeading";
 import Reveal from "../Reveal";
 import { useLanguage } from "../LanguageProvider";
-import { BARBERS, BOOKING_URL } from "../../lib/data";
+import { BARBERS, BOOKING_URL, REVIEW_DATA } from "../../lib/data";
 
 export default function BarbersPreview() {
   const { t } = useLanguage();
@@ -42,9 +42,20 @@ export default function BarbersPreview() {
                   )}
                 </div>
                 <div className="flex flex-1 flex-col p-6">
-                  <h3 className="font-[family-name:var(--font-display)] text-2xl tracking-wide text-[#F5F2EC]">
-                    {b.name}
-                  </h3>
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="font-[family-name:var(--font-display)] text-2xl tracking-wide text-[#F5F2EC]">
+                      {b.name}
+                    </h3>
+                    {REVIEW_DATA.byBarber[b.name] && (
+                      <span className="inline-flex items-center gap-1 whitespace-nowrap text-sm text-[#C9A227]">
+                        <i className="ri-star-fill" />
+                        {REVIEW_DATA.byBarber[b.name].average.toFixed(1)}
+                        <span className="text-xs text-[#8E897F]">
+                          ({REVIEW_DATA.byBarber[b.name].count})
+                        </span>
+                      </span>
+                    )}
+                  </div>
                   <p className="mt-1 text-xs uppercase tracking-[0.18em] text-[#8E897F]">
                     {b.owner ? `${t.barbers.owner} · ${t.barbers.barber}` : t.barbers.barber}
                   </p>

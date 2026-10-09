@@ -1,3 +1,5 @@
+import reviewData from "./reviews.json";
+
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const img = (name: string) => `${BASE}/images/${name}.jpg`;
 
@@ -12,10 +14,6 @@ export const PHONE_TEL = "tel:+12144078899";
 
 export const MAP_EMBED =
   "https://www.google.com/maps?q=A%26T%20Barbershop%2C%203805%20Main%20St%20Ste%20102%2C%20The%20Colony%2C%20TX%2075056&output=embed";
-
-// Rating and count as shown on the Booksy profile, October 2026.
-export const RATING = "5.0";
-export const REVIEW_COUNT = 171;
 
 // Paired by index with t.services.items.
 export const SERVICE_IMAGES = [
@@ -58,42 +56,20 @@ export const BARBERS: Barber[] = [
   { name: "Anna", image: img("barber-anna") },
 ];
 
-// Verbatim from confirmed-client reviews on Booksy; all rated 5 stars.
-export const REVIEWS = [
-  {
-    name: "Greg",
-    service: "Haircut",
-    staffer: "Amro",
-    text: "Prior to discovering A&T Barbershop, I was always let down in some way by other barbershops or barbers themselves. I am so thankful that I’ve found A&T! If you are looking for great customer service, a clean and welcoming environment, and individuals that are pro’s at their job, I’d honestly say look no farther! Personally, Amro is my go to guy because he executes flawlessly every time. No matter who ends up taking care of you though, it’s going to be great!",
-  },
-  {
-    name: "Patrick",
-    service: "Haircut",
-    staffer: "Amro",
-    text: "Every appointment is an excellent experience; it's why this has been my go-to barbershop for over a year. The crew here is always friendly, polite, and professional, not to mention fast! Their service is second to none.",
-  },
-  {
-    name: "Tommy",
-    service: "Haircut & beard",
-    staffer: "Amro",
-    text: "I’ve been going here for a while now. This barbershop is a great environment. Amro is a great barber. He’s very professional and clean. Always leaves my hair looking fresh.",
-  },
-  {
-    name: "Kendrick",
-    service: "Haircut",
-    staffer: "Richard",
-    text: "My experience was positive! Richard is 10/10 with the clippers. I will definitely be back for my next cut.",
-  },
-  {
-    name: "Elliseo",
-    service: "Haircut",
-    staffer: "Amro",
-    text: "Amro did a very good job had me looking crisper than ever i will going here again",
-  },
-  {
-    name: "Jameel",
-    service: "Haircut & beard",
-    staffer: "Amro",
-    text: "Make sure book by amro, hes a beast",
-  },
-];
+// Every review on the Booksy profile, verbatim, pulled from Booksy's review API.
+// Empty and placeholder ("N/A", ".") texts are left out of `reviews` but still
+// count toward `count`, `breakdown` and `byBarber`.
+export const REVIEW_DATA = reviewData as {
+  count: number;
+  average: number;
+  breakdown: Record<string, number>;
+  byBarber: Record<string, { count: number; average: number }>;
+  reviews: {
+    name: string;
+    date: string;
+    rating: number;
+    service: string;
+    staffer: string;
+    text: string;
+  }[];
+};
